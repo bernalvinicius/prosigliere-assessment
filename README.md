@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# Prosigliere Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Preview-Screens](https://raw.githubusercontent.com/bernalvinicius/prosigliere-assessment/refs/heads/main/public/image.png)
 
-## Available Scripts
+If you want to take a look at all the screens of the application, they are [here](https://prosigliere-assessment.vercel.app/?page=1&filter=All).
 
-In the project directory, you can run:
+## Why?
 
-### `npm start`
+This project is part of the selection process for [Prosigliere](https://www.prosigliere.com/). It involves developing a frontend application to render an API with characters from the Harry Potter movie using ReactJS. The application has the following features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Home Page
+- Favorites Page
+- Character Details Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Some Observations about this App
 
-### `npm test`
+**1** - For this challenge, Material-UI was used, which brings all the features of Material Design to React projects. For specific styling, `emotion` was used. The layout sought to be as aesthetic as possible.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**2** - The application routes:
 
-### `npm run build`
+- Homepage: https://localhost:3000
+- Character Details Page: https://localhost:3000/character/:id
+- Favorites page: http://localhost:3000/favorites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Functionalities
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Home Page:
+  - On this page the user can add or remove a character as a favorite, navigate to the details page, select between All, Students and Staff, select the favorite house, which can be Gryffindor, Slytherin, Hufflepuff or Ravenclaw. In the Navbar it is also possible to navigate between the favorites page and the character list;
+- Favorites Page:
+  - The Card with the favorite characters is rendered, it is similar to the Home Page, but with fewer resources, if there are no favorites, the message "No Favorites Found" is shown to the user..
+- Character Details Page:
+  - On the home page, the user can select a character and is directed to the page to consult their characteristics in detail. At this point, the user can favorite or not their character. When it does this, a list is created in the local storage with this information.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run this project in the development mode, you'll need to have a basic environment to run a React App, that can be found [here.](https://reactjs.org/docs/getting-started.html)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Cloning this repository**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+$ https://github.com/bernalvinicius/prosigliere-assessment.git
+$ cd prosigliere-assessment
+```
 
-## Learn More
+**Installing Dependencies**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+$ yarn
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_or_
+
+```
+$ npm install
+```
+
+**Running**
+
+With all dependencies installed and the environment properly configured, you can now run the app:
+
+```
+$ npm run dev
+```
+
+The application will only work if the Node version is higher than 18.
+
+## Contributing
+
+Email-me: bernalvinicius@gmail.com
+
+Connect with me at [LinkedIn](https://www.linkedin.com/in/vin%C3%ADcius-de-arruda-bernal/)
+
+Thank you!
