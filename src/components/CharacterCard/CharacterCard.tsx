@@ -70,6 +70,9 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             View Details
           </Button>
           <IconButton
+            aria-label={
+              isFavorite ? 'Remove from favorites' : 'Add to favorites'
+            }
             onClick={(e) => {
               e.stopPropagation();
               isFavorite

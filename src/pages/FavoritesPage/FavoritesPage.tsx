@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Typography, useTheme } from '@mui/material';
-
 import { CharacterGrid } from 'src/components';
 import { RootState } from 'src/redux/store';
 import { handleViewDetails } from 'src/utils';

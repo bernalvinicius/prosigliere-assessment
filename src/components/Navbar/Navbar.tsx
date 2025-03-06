@@ -1,8 +1,7 @@
 import React from 'react';
-import { AppBar, Toolbar, Button, useTheme, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { AppBar, Toolbar, Button, useTheme, Box } from '@mui/material';
 import { RootState } from 'src/redux/store';
 
 const Navbar = () => {

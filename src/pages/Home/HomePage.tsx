@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-
 import {
   Grid,
   Pagination,
@@ -11,7 +10,6 @@ import {
   CircularProgress,
   useTheme,
 } from '@mui/material';
-
 import { Character } from 'src/types';
 import { RootState } from 'src/redux/store';
 import { CharacterGrid } from 'src/components';
@@ -84,18 +82,25 @@ const HomePage = () => {
             sx={{ minWidth: 200, width: { xs: '100%', sm: 'auto' } }}
           >
             <Select
-              labelId="filter-label"
-              id="filter-select"
-              value={filter}
+              role="combobox"
+              data-testid="filter-select"
+              labelId="filter-select"
               onChange={(e) => {
                 setFilter(e.target.value);
                 setPage(1);
               }}
+              value={filter}
               aria-label="Filter characters"
             >
-              <MenuItem value="All">All</MenuItem>
-              <MenuItem value="Students">Students</MenuItem>
-              <MenuItem value="Staff">Staff</MenuItem>
+              <MenuItem role="option" value="All">
+                All
+              </MenuItem>
+              <MenuItem role="option" value="Students">
+                Students
+              </MenuItem>
+              <MenuItem role="option" value="Staff">
+                Staff
+              </MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -105,8 +110,9 @@ const HomePage = () => {
             sx={{ minWidth: 200, width: { xs: '100%', sm: 'auto' } }}
           >
             <Select
-              labelId="house-label"
-              id="house-select"
+              role="combobox"
+              data-testid="house-select"
+              labelId="house-select"
               value={selectedHouse}
               onChange={(e) => {
                 const selectedHouse = e.target.value;
@@ -114,10 +120,18 @@ const HomePage = () => {
               }}
               aria-label="Select house"
             >
-              <MenuItem value="gryffindor">Gryffindor</MenuItem>
-              <MenuItem value="slytherin">Slytherin</MenuItem>
-              <MenuItem value="hufflepuff">Hufflepuff</MenuItem>
-              <MenuItem value="ravenclaw">Ravenclaw</MenuItem>
+              <MenuItem role="option" value="gryffindor">
+                Gryffindor
+              </MenuItem>
+              <MenuItem role="option" value="slytherin">
+                Slytherin
+              </MenuItem>
+              <MenuItem role="option" value="hufflepuff">
+                Hufflepuff
+              </MenuItem>
+              <MenuItem role="option" value="ravenclaw">
+                Ravenclaw
+              </MenuItem>
             </Select>
           </FormControl>
         </Grid>

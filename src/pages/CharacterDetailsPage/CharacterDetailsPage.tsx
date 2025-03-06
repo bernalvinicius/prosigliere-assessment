@@ -11,10 +11,9 @@ import {
   IconButton,
   useTheme,
 } from '@mui/material';
-import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { ArrowBack } from '@mui/icons-material';
 import { RootState } from 'src/redux/store';
 import { Character } from 'src/types';
 
