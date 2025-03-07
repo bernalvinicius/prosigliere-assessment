@@ -19,6 +19,7 @@ import { setHouse } from 'src/redux/slices/houseSlice';
 
 const HomePage = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
+  // useSearchParams to configure the 'page' and 'filter' parameters in the URL
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -29,12 +30,18 @@ const HomePage = () => {
     (state: RootState) => state.house.selectedHouse
   );
 
+  // Reading URL parameters
   const pageFromUrl = Number(searchParams.get('page')) || 1;
   const filterFromUrl = searchParams.get('filter') || 'All';
+  // URL-based internal states
   const [page, setPage] = useState(pageFromUrl);
   const [filter, setFilter] = useState(filterFromUrl);
   const itemsPerPage = 16;
 
+  /**
+   * useCallback is being used to memorize the getCharacters function and
+   * prevent it from being recreated on each render of the component
+   */
   const getCharacters = useCallback(async () => {
     setLoading(true);
     try {
@@ -51,6 +58,10 @@ const HomePage = () => {
     getCharacters();
   }, [getCharacters]);
 
+  /**
+   * useEffect for setSearchParams is needed to keep the URL in sync with the
+   * component's internal states (page and filter)
+   */
   useEffect(() => {
     setSearchParams({ page: String(page), filter });
   }, [page, filter, setSearchParams]);
@@ -58,6 +69,10 @@ const HomePage = () => {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
+  /**
+   * useMemo memorizes the result of the operation to avoid unnecessary calculations
+   * It only recalculates charactersToShow if characters, startIndex or endIndex change
+   */
   const charactersToShow = useMemo(
     () => characters.slice(startIndex, endIndex),
     [characters, startIndex, endIndex]
@@ -151,6 +166,7 @@ const HomePage = () => {
 
           <Grid container justifyContent="center" sx={{ mt: 4, mb: 4 }}>
             <Pagination
+              // Math.ceil: Round up
               count={Math.ceil(characters.length / itemsPerPage)}
               page={page}
               onChange={(_, value) => {

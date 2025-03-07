@@ -11,8 +11,16 @@ const Navbar = () => {
   );
 
   const backgroundColor =
+    // I used 'as keyof typeof theme.palette.custom' to tell TypeScript that selectedHouse
+    // is a valid key of the theme.palette.custom
     theme.palette.custom[selectedHouse as keyof typeof theme.palette.custom] ||
     theme.palette.primary.main;
+
+  /**
+   * I should use useLocation from 'react-router-dom' to get active URL
+   * const location = useLocation() -> location.pathname
+   *
+   */
   return (
     <AppBar position="static" sx={{ backgroundColor }}>
       <Toolbar>

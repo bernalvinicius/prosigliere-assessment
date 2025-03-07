@@ -74,6 +74,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
               isFavorite ? 'Remove from favorites' : 'Add to favorites'
             }
             onClick={(e) => {
+              // "e.stopPropagation()" stops the click event from propagating to ancestor elements.
+              // This prevents clicking the favorite button from also triggering the Card's onClick
               e.stopPropagation();
               isFavorite
                 ? dispatch(removeFavorite(char.id))

@@ -1,6 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Character } from 'src/types';
 
+/**
+ * (): -> Doesn't receive parameter
+ */
 const loadUserFromLocalStorage = (): Character | null => {
   const savedUser = localStorage.getItem('selectedUser');
   return savedUser ? JSON.parse(savedUser) : null;
